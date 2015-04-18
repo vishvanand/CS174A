@@ -1,0 +1,35 @@
+<html>
+
+<script type="text/javascript" src="webgl-utils.js"></script>
+<script type="text/javascript" src="initShaders.js"></script>
+<script type="text/javascript" src="MV.js"></script>
+<script type="text/javascript" src="graphicsclass.js"></script>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+uniform mat4 mvMat;
+void main() {
+	//fColor = vColor;	
+    gl_Position = mvMat * vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+uniform vec4 color;
+void main() {
+    
+	gl_FragColor = color;
+	//gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
+}
+</script>
+
+<body>
+<div>
+<!--- set up HTML canvas --->
+<canvas id="gl-canvas" width="960" height="540"></canvas>
+</div>
+</body>
+</html>
